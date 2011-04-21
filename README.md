@@ -23,8 +23,8 @@ directory that should be running.
 ## Development approach
 
 Code in this repo is subject to the Mozilla Contributor Agreement, and
-[git flow]() is used to create bug/ branches that correspond to Bugzilla bug
-numbers to do fixes.
+[git flow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
+is used to create bug/ branches that correspond to Bugzilla bug numbers to do fixes.
 
 ## Build
 
