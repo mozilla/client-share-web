@@ -28,8 +28,26 @@ is used to create bug/ branches that correspond to Bugzilla bug numbers to do fi
 
 ## Build
 
-TODO
+To build a new release:
 
+* git flow release start 0.0.0
+* bump version number in version.txt
+* make web
+* git add web/0.0.0
+* git commit -a -m "versioned resources for release"
+* git tag -am "Release 0.0.0" 0.0.0
+* git flow release finish '0.0.0'
+* git checkout develop
+* git push origin develop
+* git checkout master
+* git pull origin master
+* git push origin master
+
+Be sure to push the new tag when done:
+
+* git push --tags
+
+The code in master can now be bundled for deployment as an RPM.
 
 ## License
 
