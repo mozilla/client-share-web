@@ -21,6 +21,7 @@ $(static_dir):
 	cd $(static_dir)/share/panel && $(requirejs_dir)/build/build.sh build.js
 
 dist: web
+	mkdir -p dist
 	rsync -av ./ dist/client-share-web-$(version)/ --exclude=dist/ -C
 	cd dist && tar zcvf client-share-web-$(version).tar.gz client-share-web-$(version)
 	# This is so Hudson can get stable urls to this tarball
