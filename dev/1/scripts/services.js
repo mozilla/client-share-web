@@ -125,7 +125,8 @@ function (object) {
           value: true
         },
         overlays: {
-          'Contacts': 'ContactsTwitter'
+          'Contacts': 'ContactsTwitter',
+          'widgets/AccountPanel': 'widgets/AccountPanelTwitter'
         }
       }),
       'facebook.com': new SvcBase('Facebook', {

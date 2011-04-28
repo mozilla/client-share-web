@@ -234,6 +234,14 @@ h3 {
   color: #535f6d;
 }
 
+.close {
+    position: absolute;
+    top: 0;
+    right: 3px;
+    color: #e2e2e2;
+    text-decoration: none;
+}
+
 /* Tab Buttons */
 .widgets-TabButton {
   display: block;
@@ -457,6 +465,11 @@ body .toSection input[type="text"] {
   width: 100%;
 }
 
+.shareTypeSection input[name="to"] {
+  background-color: #848484;
+  color: #e2e2e2;
+}
+
 .lineSeparatorOption {
   border-top: 1px solid #CCCCCC;
 }
@@ -525,7 +538,7 @@ body .toSection input[type="text"] {
   padding: 2px;
   border: 1px solid #383838;
   border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) inset;
 }
 
 .widgets-AccountPanel .placeholder {

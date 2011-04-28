@@ -396,6 +396,8 @@ function (object,         Widget,         $,        template,
 
         //Kick the placeholder logic to recompute, to avoid gray text issues.
         placeholder(this.node);
+
+        return opts;
       },
 
       getFormData: function () {

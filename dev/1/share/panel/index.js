@@ -224,10 +224,17 @@ function (require,   $,        object,         fn,         rdapi,   oauth,
   // This method assumes the sendData object has already been set up.
   // You probably want sendMessage, not this call.
   function callSendApi() {
+    var data = object.create(sendData);
+    //For now strip out the bitly placeholder since the backend does
+    //not support it. This is being tracked in:
+    //https://bugzilla.mozilla.org/show_bug.cgi?id=653277
+    data.message = data.message.replace(/http\:\/\/bit\.ly\/XXXXXX/, '');
+
+
     rdapi('send', {
       type: 'POST',
       domain: sendData.domain,
-      data: sendData,
+      data: data,
       success: function (json) {
         // {'message': u'Status is a duplicate.', 'provider': u'twitter.com'}
         var code, prop;
@@ -529,10 +536,6 @@ function (require,   $,        object,         fn,         rdapi,   oauth,
   onFirstShareState = function () {
     // Wait until DOM ready to start the DOM work.
     $(function () {
-      if (options.ui === 'sidebar') {
-        $("#panelHeader").text('');
-        $("#closeLink").addClass('hidden');
-      }
 
       //Listen to sendMessage events from the AccountPanels
       dispatch.sub('sendMessage', function (data) {
@@ -578,7 +581,10 @@ function (require,   $,        object,         fn,         rdapi,   oauth,
           evt.preventDefault();
           dispatch.pub('openPrefs');
         })
-        .delegate('nav .close', 'click', close);
+        .delegate('.close', 'click', function (evt) {
+          evt.preventDefault();
+          close();
+        });
 
       $('#authOkButton').click(function (evt) {
         oauth(sendData.domain, false, function (success) {
