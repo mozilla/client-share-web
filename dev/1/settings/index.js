@@ -28,7 +28,7 @@
 
 define([ "require", "jquery", "blade/fn", "rdapi", "oauth", "blade/jig",
          "dispatch", "storage", "accounts", "blade/url",
-         "services", "placeholder", "jquery.textOverflow"],
+         "services", "placeholder", "osTheme", "jquery.textOverflow"],
 function (require,   $,        fn,         rdapi,   oauth,   jig,
           dispatch,   storage,   accounts,   url,
           services,   placeholder) {

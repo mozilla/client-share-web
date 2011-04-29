@@ -23,7 +23,8 @@
 
 /*jslint plusplus: false, indent: 2, nomen: false */
 /*global require: false, define: false, location: true, window: false, alert: false,
-  document: false, setTimeout: false, localStorage: false, parent: false */
+  document: false, setTimeout: false, localStorage: false, parent: false,
+  console: false */
 "use strict";
 
 /*
@@ -37,11 +38,12 @@
 define([ "require", "jquery", "blade/object", "blade/fn", "rdapi", "oauth",
         "blade/jig", "blade/url", "placeholder", "dispatch", "accounts",
          "storage", "services", "widgets/AccountPanel", "widgets/TabButton",
-         "widgets/AddAccount", "jquery-ui-1.8.7.min", "jquery.textOverflow"],
+         "widgets/AddAccount", "less", "osTheme", "jquery-ui-1.8.7.min",
+         "jquery.textOverflow"],
 function (require,   $,        object,         fn,         rdapi,   oauth,
           jig,         url,        placeholder,   dispatch,   accounts,
           storage,   services,   AccountPanel,           TabButton,
-          AddAccount) {
+          AddAccount,           less,   osTheme) {
 
   var actions = services.domains,
     onFirstShareState = null,
@@ -63,6 +65,24 @@ function (require,   $,        object,         fn,         rdapi,   oauth,
 
     options, bodyDom, sendData, tabButtonsDom,
     servicePanelsDom;
+
+  //Start processing of less files right away.
+  require(['text!style/' + osTheme + '.css', 'text!style.css'],
+    function (osText, styleText) {
+    (new less.Parser()).parse(osText + styleText, function (err, css) {
+      if (err) {
+        if (typeof console !== 'undefined' && console.error) {
+          console.error(err);
+        }
+      } else {
+        var style = document.createElement('style');
+        style.type = 'text/css';
+        style.textContent = css.toCSS();
+        document.head.appendChild(style);
+        document.body.style.visibility = 'visible';
+      }
+    });
+  });
 
   function checkBase64Preview() {
     //Ask extension to generate base64 data if none available.

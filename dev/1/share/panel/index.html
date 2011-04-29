@@ -2,12 +2,12 @@
 <html>
 <head>
     <title>Share</title>
-    <link rel="stylesheet" type="text/css" href="/dev/1/share/panel/style.css">
     <script src="/dev/1/scripts/requireplugins-jquery.js" charset="utf-8"></script>
     <script>
       require({
         baseUrl: '/dev/1/scripts',
         paths: {
+          style: '../share/panel/style',
           widgets: '../share/panel/scripts/widgets'
         }
       });
@@ -24,7 +24,7 @@
       require(['/dev/1/share/panel/index.js']);
     </script>
 </head>
-<body>
+<body style="visibility: hidden">
 
   <noscript>
     Please enable JavaScript to use F1. If you are using NoScript or another script

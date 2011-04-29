@@ -159,7 +159,8 @@ body {
   width: 100%;
   height: 100%;
   min-height: 120px;
-  background-color: #505050;
+  color: @color;
+  background: @background;
 }
 
 noscript {
@@ -182,8 +183,9 @@ noscript {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #515151), color-stop(100%, #2b2b2b));
-  background-image: -moz-linear-gradient(center top , #515151 0%, #2b2b2b 100%);
+  background: @tabsBackgroundWebKit;
+  background: @tabsBackground;
+  border-right: @tabsBorderRight;
 }
 
 button::-moz-focus-inner {
@@ -216,8 +218,8 @@ button:active {
 }
 
 #tabContent {
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6f6f6f), color-stop(100%, #444444));
-  background-image: -moz-linear-gradient(center top , #6f6f6f 0%, #444444 100%);
+  background: @tabContentBackgroundWebKit;
+  background: @tabContentBackground;
 
 }
 
@@ -238,7 +240,6 @@ h3 {
     position: absolute;
     top: 0;
     right: 3px;
-    color: #e2e2e2;
     text-decoration: none;
 }
 
@@ -252,16 +253,19 @@ h3 {
   line-height: 18px;
   text-decoration: none;
   text-align: center;
-  color: white;
+  color: @tabButtonColor;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
+  background-repeat: no-repeat;
 }
 
 .widgets-TabButton.selected {
-  border: 1px solid #577894;
+  border: @tabButtonBorder;
   box-shadow: 0 0 5px rgba(87, 120, 148, 1);
-  background-color: #303333;
+  background: @tabButtonBackgroundWebKit;
+  background: @tabButtonBackground;
+  background-repeat: no-repeat;
 }
 
 
@@ -285,7 +289,6 @@ h3 {
   height: 24px;
   margin-right: 5px;
   line-height: 24px;
-  color: #e2e2e2;
 }
 
 .widgets-AddAccount .add li {
@@ -402,7 +405,6 @@ span.icon {
 
 .widgets-AccountPanel .user {
   width: 60px;
-  color: #e2e2e2;
   text-align: center;
 }
 
@@ -467,7 +469,6 @@ body .toSection input[type="text"] {
 
 .shareTypeSection input[name="to"] {
   background-color: #848484;
-  color: #e2e2e2;
 }
 
 .lineSeparatorOption {
@@ -507,7 +508,6 @@ body .toSection input[type="text"] {
   display: inline;
   padding-left: 5px;
   line-height: 24px;
-  color: #e2e2e2;
 }
 
 .widgets-AccountPanel div.counter.TextCountOver {
