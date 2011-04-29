@@ -11,11 +11,17 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   height: 24px;
   cursor: pointer;
-  color: #e2e2e2;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #767676), color-stop(100%, #545454));
   background-image: -moz-linear-gradient(center top , #767676 0%, #545454 100%);
   text-align: left;
   border-radius: 4px;
+}
+
+.win .Select,
+.linux .Select {
+  border: 1px solid #85818C;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FDFDFD), color-stop(100%, #DDDBDC));
+  background-image: -moz-linear-gradient(center top , #FDFDFD 0%, #DDDBDC 100%);
 }
 
 .Select.open {
@@ -34,6 +40,12 @@
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #767676), color-stop(100%, #545454));
   background-image: -moz-linear-gradient(center top , #767676 0%, #545454 100%);
   border: 1px solid gray;
+}
+
+.win .Select.open ul,
+.linux .Select.open ul {
+  background-image: none;
+  background-color: white;
 }
 
 .Select li {
@@ -64,6 +76,14 @@
 .Select.open li:hover {
   color:white;
   background-color: #2b2b2b;
+}
+
+.win .Select.open li.selected:hover,
+.win .Select.open li:hover,
+.linux .Select.open li.selected:hover,
+.linux .Select.open li:hover {
+  color: inherit;
+  background-color: #E1E9F6;
 }
 
 .Select .triangle {

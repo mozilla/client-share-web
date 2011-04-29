@@ -468,7 +468,7 @@ body .toSection input[type="text"] {
 }
 
 .shareTypeSection input[name="to"] {
-  background-color: #848484;
+  background: @shareTypeSectionInputBackground;
 }
 
 .lineSeparatorOption {
@@ -476,8 +476,8 @@ body .toSection input[type="text"] {
 }
 
 .widgets-AccountPanel .inputError[type="text"] {
-  border: 1px solid #C26464;
-  background-color: #893232;
+  border: @accountPanelInputErrorBorder;
+  background-color: @accountPanelInputErrorBackground;
 }
 
 .widgets-AccountPanel .accountActions {
@@ -525,7 +525,7 @@ body .toSection input[type="text"] {
 }
 
 .widgets-AccountPanel div.status.error {
-  color: #C26464;
+  color: @accountPanelErrorColor;
   background-color: transparent;
   box-shadow: none;
 }

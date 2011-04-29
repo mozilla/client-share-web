@@ -13,3 +13,8 @@
 @tabContentBackgroundWebKit: white;
 @tabContentBackground: white;
 
+@shareTypeSectionInputBackground: white;
+
+@accountPanelInputErrorBorder: #FC0000;
+@accountPanelInputErrorBackground: white;
+@accountPanelErrorColor: #FC0000;
