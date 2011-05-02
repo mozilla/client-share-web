@@ -240,6 +240,7 @@ h3 {
     top: 0;
     right: 3px;
     text-decoration: none;
+    color: @color;
 }
 
 /* Tab Buttons */
