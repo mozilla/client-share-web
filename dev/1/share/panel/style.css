@@ -10,7 +10,7 @@
 
 /* Fix the height of the autocomplete */
 .ui-autocomplete {
-  max-height: 85px;
+  max-height: 65px;
   overflow-x: hidden;
   overflow-y: auto;
 
@@ -20,7 +20,6 @@
 
 .ui-menu {
 	list-style:none;
-	padding: 2px;
 	margin: 0;
 	display:block;
 	float: left;
@@ -103,7 +102,7 @@
   display: none;
   border-color: #A6AFB6;
   border-style: solid;
-  border-width: 0 1px 1px 1px;
+  border-width: 1px;
   margin: 0;
   padding: 2px;
   background: white;
@@ -111,12 +110,12 @@
   z-index: 100;
 }
 
-.addressing .AutoCompleteRefresh {
-  top: 26px;
+.addressing .AutoCompleteRefresh.below {
+  top: 24px;
 }
 
-.addressing .toSection .AutoCompleteRefresh {
-  top: 45px;
+.addressing .AutoCompleteRefresh.above {
+  top: -54px;
 }
 
 .AutoCompleteRefresh button {
@@ -125,7 +124,7 @@
 
 .addressing .AutoCompleteSpinner {
   position: absolute;
-  top: 6px;
+  top: 4px;
   right: 3px;
   width: 16px;
   height: 16px;
@@ -134,7 +133,7 @@
 }
 
 .addressing .toSection .AutoCompleteSpinner {
-  top: 25px;
+  top: 4px;
 }
 
 * {
@@ -159,7 +158,8 @@ body {
   width: 100%;
   height: 100%;
   min-height: 120px;
-  background-color: #505050;
+  color: @color;
+  background: @background;
 }
 
 noscript {
@@ -182,8 +182,9 @@ noscript {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #515151), color-stop(100%, #2b2b2b));
-  background-image: -moz-linear-gradient(center top , #515151 0%, #2b2b2b 100%);
+  background: @tabsBackgroundWebKit;
+  background: @tabsBackground;
+  border-right: @tabsBorderRight;
 }
 
 button::-moz-focus-inner {
@@ -216,8 +217,8 @@ button:active {
 }
 
 #tabContent {
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6f6f6f), color-stop(100%, #444444));
-  background-image: -moz-linear-gradient(center top , #6f6f6f 0%, #444444 100%);
+  background: @tabContentBackgroundWebKit;
+  background: @tabContentBackground;
 
 }
 
@@ -234,6 +235,14 @@ h3 {
   color: #535f6d;
 }
 
+.close {
+    position: absolute;
+    top: 0;
+    right: 3px;
+    text-decoration: none;
+    color: @color;
+}
+
 /* Tab Buttons */
 .widgets-TabButton {
   display: block;
@@ -244,16 +253,19 @@ h3 {
   line-height: 18px;
   text-decoration: none;
   text-align: center;
-  color: white;
+  color: @tabButtonColor;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
+  background-repeat: no-repeat;
 }
 
 .widgets-TabButton.selected {
-  border: 1px solid #577894;
+  border: @tabButtonBorder;
   box-shadow: 0 0 5px rgba(87, 120, 148, 1);
-  background-color: #303333;
+  background: @tabButtonBackgroundWebKit;
+  background: @tabButtonBackground;
+  background-repeat: no-repeat;
 }
 
 
@@ -277,7 +289,6 @@ h3 {
   height: 24px;
   margin-right: 5px;
   line-height: 24px;
-  color: #e2e2e2;
 }
 
 .widgets-AddAccount .add li {
@@ -394,7 +405,6 @@ span.icon {
 
 .widgets-AccountPanel .user {
   width: 60px;
-  color: #e2e2e2;
   text-align: center;
 }
 
@@ -449,6 +459,7 @@ img.avatar {
 }
 
 .toSection {
+  position: relative;
   width: 150px;
   padding-left: 10px;
 }
@@ -457,13 +468,17 @@ body .toSection input[type="text"] {
   width: 100%;
 }
 
+.shareTypeSection input[name="to"] {
+  background: @shareTypeSectionInputBackground;
+}
+
 .lineSeparatorOption {
   border-top: 1px solid #CCCCCC;
 }
 
 .widgets-AccountPanel .inputError[type="text"] {
-  border: 1px solid #C26464;
-  background-color: #893232;
+  border: @accountPanelInputErrorBorder;
+  background-color: @accountPanelInputErrorBackground;
 }
 
 .widgets-AccountPanel .accountActions {
@@ -494,7 +509,6 @@ body .toSection input[type="text"] {
   display: inline;
   padding-left: 5px;
   line-height: 24px;
-  color: #e2e2e2;
 }
 
 .widgets-AccountPanel div.counter.TextCountOver {
@@ -512,7 +526,7 @@ body .toSection input[type="text"] {
 }
 
 .widgets-AccountPanel div.status.error {
-  color: #C26464;
+  color: @accountPanelErrorColor;
   background-color: transparent;
   box-shadow: none;
 }
@@ -525,7 +539,7 @@ body .toSection input[type="text"] {
   padding: 2px;
   border: 1px solid #383838;
   border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) inset;
 }
 
 .widgets-AccountPanel .placeholder {
@@ -552,12 +566,12 @@ body .toSection input[type="text"] {
 }
 
 .widgets-AccountPanel button.share {
-  border: 1px solid #57BCFF;
-  color: #005796;
+  border: @buttonShareBorder;
+  color: @buttonShareColor;
   font-weight: bold;
-  text-shadow: 0 1px 1px #47AFF8;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0097F1), color-stop(100%, #545454));
-  background-image: -moz-linear-gradient(center top , #23AEFF 0%, #0097F1 100%);
+  text-shadow: @buttonShareTextShadow;
+  background: @buttonShareBackgroundWebKit;
+  background: @buttonShareBackground;
 }
 
 /*

@@ -1,4 +1,4 @@
-version = $(shell cat version.txt)
+version=$(shell cat version.txt)
 
 ifeq ($(TOPSRCDIR),)
   export TOPSRCDIR = $(shell pwd)
@@ -15,10 +15,8 @@ $(static_dir):
 	find $(static_dir) -name \*.html | xargs perl -i -pe 's:/dev/:/$(version)/:go'
 	perl -i -pe 's:/dev/:/$(version)/:go' $(static_dir)/scripts/oauth.js
 
-	cd $(static_dir) && $(requirejs_dir)/build/build.sh build.js
-	cd $(static_dir)/settings && $(requirejs_dir)/build/build.sh build.js
-	cd $(static_dir)/share && $(requirejs_dir)/build/build.sh build.js
-	cd $(static_dir)/share/panel && $(requirejs_dir)/build/build.sh build.js
+	cd $(static_dir)/1/settings && $(requirejs_dir)/build/build.sh build.js
+	cd $(static_dir)/1/share/panel && $(requirejs_dir)/build/build.sh build.js
 
 dist: web
 	mkdir -p dist

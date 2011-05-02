@@ -49,6 +49,8 @@ function ($,        object,         fn,         module,   dispatch,
       this.attachedWidget = false;
       this.acOptions = [];
 
+      this.orient = contactService.svc.features.subject ? 'below' : 'above';
+
       // Listen for changes to the contacts.
       contactService.notify(fn.bind(this, this.attachAutoComplete));
 
@@ -127,6 +129,13 @@ function ($,        object,         fn,         module,   dispatch,
           }))
           .autocomplete({
             minLength: 0,
+            position: this.orient === 'above' ? {
+              my: 'right bottom',
+              at: 'right top'
+            } : {
+              my: 'right top',
+              at: 'right bottom'
+            },
             source: fn.bind(this, function (request, response) {
               // delegate back to autocomplete, but extract the last term
               this.filtered = $.ui.autocomplete.filter(this.acOptions, extractLast(request.term));
@@ -202,6 +211,7 @@ function ($,        object,         fn,         module,   dispatch,
 
       if (!this.refreshDom) {
         this.refreshDom = $(refreshHtml)
+          .addClass(this.orient)
           .css({
             width: this.relatedWidth + 'px'
           })
