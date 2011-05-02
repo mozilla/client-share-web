@@ -17,7 +17,16 @@ $(static_dir):
 
 	cd $(static_dir)/1/settings && $(requirejs_dir)/build/build.sh build.js
 	cd $(static_dir)/1/share/panel && $(requirejs_dir)/build/build.sh build.js
-clean:
-	rm -rf $(static_dir)
 
-.PHONY: clean web $(static_dir)
+dist: web
+	mkdir -p dist
+	rsync -av ./ dist/client-share-web-$(version)/ --exclude=dist/ -C
+	cd dist && tar zcvf client-share-web-$(version).tar.gz client-share-web-$(version)
+	# This is so Hudson can get stable urls to this tarball
+	ln -sf client-share-web-$(version).tar.gz dist/client-share-web-current.tar.gz
+	rm -rf dist/client-share-web-$(version)
+
+clean:
+	rm -rf $(static_dir) dist/*
+
+.PHONY: clean web $(static_dir) dist
