@@ -21,3 +21,9 @@
 @accountPanelInputErrorBorder: 1px solid #C26464;
 @accountPanelInputErrorBackground: #893232;
 @accountPanelErrorColor: #C26464;
+
+@buttonShareBorder: 1px solid #57BCFF;
+@buttonShareTextShadow: 0 1px 1px #47AFF8;
+@buttonShareColor: #005796;
+@buttonShareBackgroundWebKit: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0097F1), color-stop(100%, #545454));
+@buttonShareBackground: -moz-linear-gradient(center top , #23AEFF 0%, #0097F1 100%);

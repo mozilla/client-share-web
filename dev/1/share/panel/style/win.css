@@ -18,3 +18,10 @@
 @accountPanelInputErrorBorder: 1px solid #FC0000;
 @accountPanelInputErrorBackground: white;
 @accountPanelErrorColor: #FC0000;
+
+@buttonShareBorder: 1px solid #1C92C2;
+@buttonShareColor: #252525;
+@buttonShareTextShadow: 0;
+@buttonShareBackgroundWebKit: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #EDF7F9), color-stop(100%, #9BDCF5));
+@buttonShareBackground: -moz-linear-gradient(center top , #EDF7F9 0%, #9BDCF5 100%);
+

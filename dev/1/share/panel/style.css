@@ -10,7 +10,7 @@
 
 /* Fix the height of the autocomplete */
 .ui-autocomplete {
-  max-height: 85px;
+  max-height: 65px;
   overflow-x: hidden;
   overflow-y: auto;
 
@@ -20,7 +20,6 @@
 
 .ui-menu {
 	list-style:none;
-	padding: 2px;
 	margin: 0;
 	display:block;
 	float: left;
@@ -103,7 +102,7 @@
   display: none;
   border-color: #A6AFB6;
   border-style: solid;
-  border-width: 0 1px 1px 1px;
+  border-width: 1px;
   margin: 0;
   padding: 2px;
   background: white;
@@ -111,12 +110,12 @@
   z-index: 100;
 }
 
-.addressing .AutoCompleteRefresh {
-  top: 26px;
+.addressing .AutoCompleteRefresh.below {
+  top: 24px;
 }
 
-.addressing .toSection .AutoCompleteRefresh {
-  top: 45px;
+.addressing .AutoCompleteRefresh.above {
+  top: -54px;
 }
 
 .AutoCompleteRefresh button {
@@ -125,7 +124,7 @@
 
 .addressing .AutoCompleteSpinner {
   position: absolute;
-  top: 6px;
+  top: 4px;
   right: 3px;
   width: 16px;
   height: 16px;
@@ -134,7 +133,7 @@
 }
 
 .addressing .toSection .AutoCompleteSpinner {
-  top: 25px;
+  top: 4px;
 }
 
 * {
@@ -459,6 +458,7 @@ img.avatar {
 }
 
 .toSection {
+  position: relative;
   width: 150px;
   padding-left: 10px;
 }
@@ -565,12 +565,12 @@ body .toSection input[type="text"] {
 }
 
 .widgets-AccountPanel button.share {
-  border: 1px solid #57BCFF;
-  color: #005796;
+  border: @buttonShareBorder;
+  color: @buttonShareColor;
   font-weight: bold;
-  text-shadow: 0 1px 1px #47AFF8;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0097F1), color-stop(100%, #545454));
-  background-image: -moz-linear-gradient(center top , #23AEFF 0%, #0097F1 100%);
+  text-shadow: @buttonShareTextShadow;
+  background: @buttonShareBackgroundWebKit;
+  background: @buttonShareBackground;
 }
 
 /*
