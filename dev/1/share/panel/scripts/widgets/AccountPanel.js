@@ -338,14 +338,18 @@ function (object,         Widget,         $,        template,
         var root = $(this.node),
             opts = this.options,
             formLink = jigFuncs.link(opts),
-            restoredData = this.memStore[formLink],
-            oldData;
+            oldData = this.getFormData(),
+            restoredData;
 
         //Save off previous form data for old URL.
-        oldData = this.getFormData();
         if (oldData.to || oldData.message || oldData.subject) {
           this.memStore[oldData.link] = oldData;
         }
+
+        //Get any data to restore. Do this after saving the oldData
+        //since it could be that we are on the same URL and it is the first
+        //refresh to this URL.
+        restoredData = this.memStore[formLink];
 
         //Delete memory data for current URL if the account changed.
         if (restoredData && this.theGameHasChanged(restoredData)) {
