@@ -33,8 +33,7 @@ To build a new release:
 * git flow release start 0.0.0
 * bump version number in version.txt
 * make web
-* git add web/0.0.0
-* git commit -a -m "versioned resources for release"
+* git commit -a -m "updating version for release"
 * git tag -am "Release 0.0.0" 0.0.0
 * git flow release finish '0.0.0'
 * git checkout develop
