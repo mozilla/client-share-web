@@ -248,8 +248,9 @@ function (require,   $,        object,         fn,         rdapi,   oauth,
     //For now strip out the bitly placeholder since the backend does
     //not support it. This is being tracked in:
     //https://bugzilla.mozilla.org/show_bug.cgi?id=653277
-    data.message = data.message.replace(/http\:\/\/bit\.ly\/XXXXXX/, '');
-
+    if (data.message) {
+      data.message = data.message.replace(/http\:\/\/bit\.ly\/XXXXXX/, '');
+    }
 
     rdapi('send', {
       type: 'POST',
