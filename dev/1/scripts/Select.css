@@ -95,7 +95,7 @@
   line-height: 24px;
   padding: 0 2px;
   z-index: 101;
-  background-image: url("/share/i/sprite.png");
+  background-image: url("i/sprite2.png");
   background-position: center -362px;
   background-repeat: no-repeat;
 }

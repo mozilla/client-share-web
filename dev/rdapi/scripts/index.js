@@ -30,12 +30,9 @@ function ($,        rdapi,   object,         jig) {
 
     var docs, urlSection, toc = [],
         urlParamRegExp = /\{([^\}]+)\}/g,
-        fragLinkRegExp = /#StandardResponse|#Attachment|#Message|#Conversation/g,
+        fragLinkRegExp = /#StandardResponse/g,
         apiLinks = {
-            '#StandardResponse': 'Standard Response',
-            '#Attachment': 'Attachment',
-            '#Message': 'Message',
-            '#Conversation': 'Conversation'
+            '#StandardResponse': 'Standard Response'
         };
 
     //Add a pretty JSON method for use in templates
@@ -313,7 +310,7 @@ function ($,        rdapi,   object,         jig) {
 
                 //Add the name attributes to static sections here instead of the HTML
                 //to avoid a weird box sizing issue in Firefox.
-                ['Notes', 'Conversation', 'Message', 'Attachment'].forEach(function (name) {
+                ['Notes'].forEach(function (name) {
                     document.getElementById(name + 'Title').setAttribute('name', name);
                 });
 

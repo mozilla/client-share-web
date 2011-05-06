@@ -36,12 +36,12 @@
 */
 
 define([ "require", "jquery", "blade/object", "blade/fn", "rdapi", "oauth",
-        "blade/jig", "blade/url", "placeholder", "dispatch", "accounts",
+        "blade/jig", "blade/url", "dispatch", "accounts",
          "storage", "services", "widgets/AccountPanel", "widgets/TabButton",
          "widgets/AddAccount", "less", "osTheme", "jquery-ui-1.8.7.min",
          "jquery.textOverflow"],
 function (require,   $,        object,         fn,         rdapi,   oauth,
-          jig,         url,        placeholder,   dispatch,   accounts,
+          jig,         url,        dispatch,   accounts,
           storage,   services,   AccountPanel,           TabButton,
           AddAccount,           less,   osTheme) {
 
@@ -145,8 +145,6 @@ function (require,   $,        object,         fn,         rdapi,   oauth,
   function resetStatusDisplay() {
     $('#clickBlock').addClass('hidden');
     $('div.status').addClass('hidden');
-    //Be sure form field placeholders are up to date.
-    placeholder();
   }
 
   function cancelStatus() {

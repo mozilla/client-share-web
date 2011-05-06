@@ -26,11 +26,11 @@
 "use strict";
 
 define([ 'blade/object', 'blade/Widget', 'jquery', 'text!./AccountPanel.html',
-         'TextCounter', 'storage', 'module', 'placeholder', 'dispatch', 'accounts',
+         'TextCounter', 'storage', 'module', 'dispatch', 'accounts',
          'require', 'AutoComplete', 'rdapi', 'blade/fn', './jigFuncs', 'Select',
          'jquery.textOverflow'],
 function (object,         Widget,         $,        template,
-          TextCounter,   storage,   module,   placeholder,   dispatch,   accounts,
+          TextCounter,   storage,   module,   dispatch,   accounts,
           require,   AutoComplete,   rdapi,   fn,         jigFuncs,     Select) {
 
   var store = storage(),
@@ -197,7 +197,6 @@ function (object,         Widget,         $,        template,
         if (this.svc.textLimit) {
           this.startCounter();
         }
-        placeholder(this.node);
 
         // Set up autocomplete and contacts used for autocomplete.
         // Since contacts can have a different
@@ -246,8 +245,6 @@ function (object,         Widget,         $,        template,
         if (this.svc.textLimit) {
           root.find('.counter').html('');
         }
-
-        placeholder(this.node);
       },
 
       saveData: function () {
@@ -398,9 +395,6 @@ function (object,         Widget,         $,        template,
           this.updateCounter();
         }
 
-        //Kick the placeholder logic to recompute, to avoid gray text issues.
-        placeholder(this.node);
-
         return opts;
       },
 
@@ -411,10 +405,6 @@ function (object,         Widget,         $,        template,
         //Then collect the form values into the data object.
         $.each(dom[0].elements, function (i, node) {
           var trimmed = node.value.trim();
-
-          if (node.getAttribute("placeholder") === trimmed) {
-            trimmed = "";
-          }
 
           node.value = trimmed;
 
@@ -449,7 +439,6 @@ function (object,         Widget,         $,        template,
 
         //If there is a special to value (like linkedin my connections), drop it in
         toInputDom.val(shareType.specialTo ? shareType.specialTo : '');
-        placeholder(toInputDom[0]);
 
         if (shareType.showTo) {
           toSectionDom.removeClass('hiddenImportant');
