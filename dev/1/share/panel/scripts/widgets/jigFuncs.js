@@ -56,7 +56,7 @@ define(['blade/jig', 'services'], function (jig, services) {
     },
     profilePic: function (photos) {
       //TODO: check for a thumbnail picture, hopefully one that is square.
-      return photos && photos[0] && photos[0].value || '/share/i/face2.png';
+      return photos && photos[0] && photos[0].value || 'i/face2.png';
     },
     serviceName: function (domain) {
       return services.domains[domain].name;

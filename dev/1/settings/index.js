@@ -28,10 +28,10 @@
 
 define([ "require", "jquery", "blade/fn", "rdapi", "oauth", "blade/jig",
          "dispatch", "storage", "accounts", "blade/url",
-         "services", "placeholder", "osTheme", "jquery.textOverflow"],
+         "services", "osTheme", "jquery.textOverflow"],
 function (require,   $,        fn,         rdapi,   oauth,   jig,
           dispatch,   storage,   accounts,   url,
-          services,   placeholder) {
+          services) {
   var store = storage(),
       existingAccounts = {};
 

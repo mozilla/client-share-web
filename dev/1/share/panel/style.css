@@ -128,7 +128,7 @@
   right: 3px;
   width: 16px;
   height: 16px;
-  background-image: url('/share/i/loader.gif');
+  background-image: url('i/loader.gif');
   z-index: 200;
 }
 
@@ -301,18 +301,18 @@ h3 {
 }
 
 .widgets-AddAccount .add li[data-value="twitter.com"] {
-  background-image: url("/share/i/sprite.png");
+  background-image: url("i/sprite2.png");
   background-position: 4px -33px;
 
 }
 
 .widgets-AddAccount .add li[data-value="facebook.com"] {
-  background-image: url("/share/i/sprite.png");
+  background-image: url("i/sprite2.png");
   background-position: 4px -66px;
 }
 
 .widgets-AddAccount .add li[data-value="google.com"] {
-  background-image: url("/share/i/sprite.png");
+  background-image: url("i/sprite2.png");
   background-position: 4px -99px;
 }
 
@@ -358,42 +358,42 @@ span.icon {
 }
 
 .icon.settings {
-  background-image: url("/share/i/sprite.png");
+  background-image: url("i/sprite2.png");
   background-position: center 4px;
 }
 
 .icon.twitter {
-  background-image: url("/share/i/sprite.png");
+  background-image: url("i/sprite2.png");
   background-position: center -33px;
 }
 
 .icon.facebook {
-  background-image: url("/share/i/sprite.png");
+  background-image: url("i/sprite2.png");
   background-position: center -66px;
 }
 
 .icon.gmail {
-  background-image: url("/share/i/sprite.png");
+  background-image: url("i/sprite2.png");
   background-position: center -99px;
 }
 
 .icon.yahoo {
-  background-image: url("/share/i/sprite.png");
+  background-image: url("i/sprite2.png");
   background-position: center -129px;
 }
 
 .icon.googleapps {
-  background-image: url("/share/i/sprite.png");
+  background-image: url("i/sprite2.png");
   background-position: center -162px;
 }
 
 .icon.linkedin {
-  background-image: url("/share/i/LinkedIn_Logo16px.png");
+  background-image: url("i/LinkedIn_Logo16px.png");
   background-position: center;
 }
 
 .icon.debug {
-  background-image: url("/share/i/bug_b.png");
+  background-image: url("i/bug_b.png");
   background-position: center;
 }
 
