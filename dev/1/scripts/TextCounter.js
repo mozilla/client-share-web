@@ -31,7 +31,6 @@ function ($,        object,         fn) {
     return object(null, null, {
         init: function (node, countNode, limit) {
             this.dom = $(node);
-            this.domPlaceholderText = this.dom[0].getAttribute('placeholder') || '';
             this.countDom = $(countNode);
             this.limit = limit;
             this.dom.bind('keyup', fn.bind(this, 'checkCount'));
@@ -41,10 +40,6 @@ function ($,        object,         fn) {
         checkCount: function () {
             var value = this.dom[0].value,
                 count;
-
-            if (value.trim() === this.domPlaceholderText) {
-                value = '';
-            }
 
             count = this.limit - value.length;
             if (count < 0) {
